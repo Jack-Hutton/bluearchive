@@ -69,7 +69,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   // sitemap: {
   //   hostname: 'https://vitepress-theme-bluearchive.vercel.app',
   // },
-  title: "Sensei's ブログ",
+  title: "景行のブログ",
   description: "Sensei's ブログ",
   themeConfig: {
     // navBar
@@ -80,7 +80,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     //banner区配置
     videoBanner: false,
-    name: "Sensei's ブログ",
+    name: "景行与风",
     welcomeText: 'Hello, welcome  to my blog!',
     motto: ['和你的日常，就是奇迹', '何気ない日常で、ほんの少しの奇跡を見つける物語。'],
     social: [
