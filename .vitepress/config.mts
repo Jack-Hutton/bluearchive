@@ -19,14 +19,12 @@ export interface ThemeConfig {
   footerName: string
   poweredList: { name: string; url: string }[]
 
-  //gitalk
-  clientID: string
-  clientSecret: string
-  repo: string
-  owner: string
-  admin: string[]
-  proxy?: string
-  redirect_uri?: string
+  // giscus
+  comment?: {
+    provider: string
+    options: any
+  }
+ 
 }
 
 export default defineConfigWithTheme<ThemeConfig>({
@@ -102,14 +100,18 @@ export default defineConfigWithTheme<ThemeConfig>({
       { name: 'GitHub Pages', url: 'https://docs.github.com/zh/pages' },
     ],
 
-  //gitalk配置
-  clientID: 'Ov23li7STCoBhUAOa6Xa',
-  clientSecret: '9aee30d6ed5073fb3b6addd84431741130b0673c',
-  repo: 'bluearchive', 
-  owner: 'Jack-Hutton',
-  admin: ['Jack-Hutton'],
-  redirect_uri: 'https://jackhutton.cc.cd',
-  proxy: 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token',
+  // Giscus 评论配置
+  comment: {
+    provider: 'giscus',
+    options: {
+      repo: 'Jack-Hutton/bluearchive',
+      repoId: 'R_kgDONiH6w',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDONiH684DI23F',
+      mapping: 'pathname',
+      lang: 'zh-CN'
+    }
+  },
 
   },
   markdown: {
