@@ -1,66 +1,60 @@
 <template>
-  <div class="gitalk-container">
-    <div id="gitalk-container"></div>
+  <div class="giscus-container">
+    <div class="giscus"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { useData } from 'vitepress'
-import md5 from 'md5'
-const themeConfig = useData().theme.value
-declare var Gitalk: any
-onMounted(() => {
-  const commentConfig = {
-    clientID: themeConfig.clientID,
-    clientSecret: themeConfig.clientSecret,
-    repo: themeConfig.repo,
-    owner: themeConfig.owner,
-    admin: themeConfig.admin,
-    id: md5(location.pathname).toString(),
-    distractionFreeMode: false,
-  }
+import { onMounted, watch } from 'vue'
+import { useRoute } from 'vitepress'
 
-  const gitalk = new Gitalk(commentConfig)
-  gitalk.render('gitalk-container')
+const route = useRoute()
+
+const loadGiscus = () => {
+  // 清除之前的评论框（切换页面时防止叠加）
+  const container = document.querySelector('.giscus')
+  if (container) container.innerHTML = ''
+
+  // 创建 Giscus 脚本
+  const script = document.createElement('script')
+  script.src = 'https://giscus.app/client.js'
+  script.setAttribute('data-repo', 'Jack-Hutton/bluearchive')
+  script.setAttribute('data-repo-id', 'R_kgDOVNiH6w')
+  script.setAttribute('data-category', 'Announcements')
+  script.setAttribute('data-category-id', 'DIC_kwDOVNiH684DI23f')
+  script.setAttribute('data-mapping', 'pathname')
+  script.setAttribute('data-strict', '0')
+  script.setAttribute('data-reactions-enabled', '1')
+  script.setAttribute('data-emit-metadata', '0')
+  script.setAttribute('data-input-position', 'bottom')
+  script.setAttribute('data-theme', 'preferred_color_scheme')
+  script.setAttribute('data-lang', 'zh-CN')
+  script.setAttribute('crossorigin', 'anonymous')
+  script.async = true
+
+  // 把脚本塞进容器里
+  if (container) {
+    container.appendChild(script)
+  }
+}
+
+onMounted(() => {
+  loadGiscus()
 })
+
+// 监听路由变化，切换到新文章时重新加载评论
+watch(
+  () => route.path,
+  () => {
+    setTimeout(loadGiscus, 500)
+  }
+)
 </script>
 
-<style>
-.gt-container .gt-header-textarea {
-  color: var(--font-color-grey);
-  background-color: var(--general-background-color) !important;
-  transition: background-color 0.5s, color 0.5s !important;
-  
-}
-.gt-container .gt-comment-content{
-  background-color: var(--gitalk-background) !important;
-  border-radius: 10px;
-  p{
-    color: var(--font-color-grey);
-  }
-  ol{
-    color: var(--gitalk-font-color-ol);
-  }
-  .email-fragment {
-    color: var(--font-color-grey);
-  }
-  .email-hidden-reply {
-    color: var(--font-color-grey);
-  }
-}
-
-.gt-container .gt-comment-content:hover {
-  -webkit-box-shadow: var(--gitalk-shadow) !important;
-          box-shadow: var(--gitalk-shadow) !important; 
-}
-
-.gt-container .gt-comment-body {
-  color: #ffffff !important;
-}
-
-.markdown-body blockquote {
-  padding: 0 1em;
-  border-left: var(--gitalk-border-left) !important;
+<style scoped>
+.giscus-container {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--vp-c-divider);
 }
 </style>
