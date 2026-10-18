@@ -102,7 +102,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     //gitalk配置
     clientID: 'Ov23li7STCoBhUAOa6Xa',
-    clientSecret: 'cf706836391c73338fe39e7afca9d3968e6c61dd',
+    clientSecret: '9aee30d6ed5073fb3b6addd84431741130b0673c',
     repo: 'bluearchive',
     owner: 'Jack-Hutton',
     admin: ['Jack-Hutton'],
