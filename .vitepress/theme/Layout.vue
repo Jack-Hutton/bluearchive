@@ -5,6 +5,5 @@ const { Layout } = DefaultTheme
 
 <template>
   <Layout>
-    <!-- 这里不要加任何东西 -->
   </Layout>
 </template>
