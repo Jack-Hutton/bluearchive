@@ -101,11 +101,12 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
 
     //gitalk配置
-    clientID: 'Ov23lia9U9wFN3WMyoKK',
-    clientSecret: 'b2418ab598c188c43a247c99e728dd2735d58c3b',
-    repo: 'vitepress-theme-bluearchive',
-    owner: 'Alittfre',
-    admin: ['Alittfre'],
+    clientID: 'Ov23li7STCoBhUAOa6Xa',
+    clientSecret: 'cf706836391c73338fe39e7afca9d3968e6c61dd',
+    repo: 'bluearchive',
+    owner: 'Jack-Hutton',
+    admin: ['Jack-Hutton'],
+    proxy: 'https://stazxr-proxy-interface.netlify.app/github_access_token'
   },
   markdown: {
     theme: 'solarized-dark',
