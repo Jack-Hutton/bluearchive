@@ -106,7 +106,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     repo: 'bluearchive',
     owner: 'Jack-Hutton',
     admin: ['Jack-Hutton'],
-    proxy: 'https://cors.isomorphic-git.org/',
+    //proxy: 'https://cors.isomorphic-git.org/',
   },
   markdown: {
     theme: 'solarized-dark',
