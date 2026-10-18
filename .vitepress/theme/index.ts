@@ -1,3 +1,4 @@
+// https://vitepress.dev/guide/custom-theme
 import Layout from './Layout.vue'
 import type { Theme } from 'vitepress'
 import 'normalize.css'
