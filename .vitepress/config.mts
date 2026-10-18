@@ -106,8 +106,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     repo: 'bluearchive',
     owner: 'Jack-Hutton',
     admin: ['Jack-Hutton'],
-    //proxy: 'https://stazxr-proxy-interface.netlify.app/github_access_token'
-    proxy: 'https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token',
+    proxy: 'https://cors.isomorphic-git.org/',
   },
   markdown: {
     theme: 'solarized-dark',
