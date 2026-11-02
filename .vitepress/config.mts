@@ -89,7 +89,7 @@ export default defineConfigWithTheme<ThemeConfig>({
     ],
 
     //spine语音配置，可选zh/jp
-    spineVoiceLang: 'zh',
+    spineVoiceLang: 'jp',
 
     //footer配置
     footerName: 'Sensei',
